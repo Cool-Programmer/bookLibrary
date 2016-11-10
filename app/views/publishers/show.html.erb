@@ -1,0 +1,14 @@
+<h1><%= @publisher.name %></h1>
+<div id="books-show">
+	<% @books.each_slice(4) do |books| %>
+		<div class="row">
+			<% books.each do |book| %>
+				<div class="col-md-3">
+					<h3><%= book.title %></h3>
+					<%= image_tag(book.coverpath, class: 'img-responsive thumbnail') %>
+					<%= link_to('Read More', book_path(book), class: 'btn btn-primary') %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,25 @@
+<h2>Add New Author</h2>
+<%= form_for @author do |f| %>
+
+	<% if @author.errors.any? %>
+		<div class="alert alert-danger">
+			<% @author.errors.full_messages.each do |msg| %>
+				<ul><li><%= msg %></li></ul>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+		<%= f.label :first_name %> <br>
+		<%= f.text_field :first_name, class: 'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name, class: 'form-control' %>
+	</div>
+
+	<%= f.submit 'Add Author', class: 'btn btn-primary' %>
+	<%= link_to 'Cancel', authors_path, class: 'btn btn-danger' %>
+
+<% end %> 
